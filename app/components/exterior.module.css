@@ -1,0 +1,141 @@
+.splash {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 32px;
+  background: #111321;
+  color: #f9e8c4;
+  text-align: center;
+}
+
+.splashContent {
+  width: 100%;
+  max-width: 720px;
+}
+
+.brand {
+  margin: 0 0 32px;
+  color: #d5aa6a;
+  font: 700 12px/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: .42em;
+}
+
+.splash h1 {
+  margin: 0;
+  font: italic normal clamp(60px, 10vw, 122px)/1 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.065em;
+}
+
+.rule {
+  width: 96px;
+  height: 1px;
+  margin: 37px auto;
+  background: #bd9559;
+}
+
+.splashActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.enterButton,
+.playMusicButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 184px;
+  min-height: 55px;
+  padding: 14px 28px;
+  border: 1px solid #d5aa6a;
+  background: #722b34;
+  color: #fff1d2;
+  font: 700 12px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: .25em;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.playMusicButton {
+  background: transparent;
+  cursor: pointer;
+}
+
+.enterButton:hover,
+.playMusicButton:hover {
+  transform: translateY(-2px);
+  background: #8a3540;
+}
+
+.enterButton:focus-visible,
+.playMusicButton:focus-visible {
+  outline: 2px solid #fff1d2;
+  outline-offset: 4px;
+}
+
+.entrance {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #090c18;
+}
+
+.entranceImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.exteriorEnter {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(72px, 10vh, 118px);
+  left: 50%;
+  min-width: 184px;
+  min-height: 55px;
+  padding: 14px 28px;
+  transform: translateX(-50%);
+  border: 1px solid #d5aa6a;
+  background: #722b34;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, .5);
+  color: #fff1d2;
+  cursor: pointer;
+  font: 700 12px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: .25em;
+  transition: background .2s ease;
+}
+
+.exteriorEnter:hover {
+  background: #8a3540;
+}
+
+.exteriorEnter:focus-visible {
+  outline: 2px solid #fff1d2;
+  outline-offset: 4px;
+}
+
+.exteriorEnter:disabled {
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .splash {
+    padding: 24px;
+  }
+
+  .brand {
+    font-size: 10px;
+  }
+
+  .entranceImage {
+    object-position: center top;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enterButton,
+  .playMusicButton,
+  .exteriorEnter {
+    transition: none;
+  }
+}

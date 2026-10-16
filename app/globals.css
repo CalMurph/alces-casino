@@ -1,26 +1,94 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  background: #0c1328;
+  color: #fff1cf;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}
+
+.interior-page {
+  isolation: isolate;
+  padding: 80px 32px 92px;
+  background: #351626;
+  color: #f8e9cd;
+}
+
+.interior-content {
+  width: min(100%, 1120px);
+}
+
+.interior-game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.interior-game-card {
+  display: flex;
+  min-height: 178px;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 30px;
+  border: 1px solid rgba(229, 184, 128, .65);
+  background: #4c2036;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .38);
+  opacity: .6;
+  transition: opacity .25s ease;
+  text-decoration: none;
+
+}
+
+.interior-game-card:hover {
+  opacity: 1;
+}
+
+.interior-game-card h2 {
+  margin: 0;
+  font: normal clamp(28px, 2.7vw, 38px)/1.1 Georgia, 'Times New Roman', serif;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .interior-page {
+    padding: 70px 20px 90px;
+  }
+
+  .interior-game-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .interior-game-card {
+    min-height: 112px;
+    padding: 20px 24px;
+  }
+}
+
+@media (hover: none) {
+  .interior-game-card {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interior-game-card {
+    transition: none;
+  }
 }
